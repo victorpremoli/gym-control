@@ -1,6 +1,11 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { age } = require('./utils')
+const { age, date } = require('./utils')
+
+exports.index = function(req,res) {
+
+    return res.render("instructors/index", {instructors : data.instructors})
+}
 
 //show
 exports.show = function(req,res){
@@ -35,7 +40,7 @@ exports.post = function(req, res) {
 
     let {avatar_url, birth, gender, services, name} = req.body
 
-    birth = Date.parse(req.body.birth)
+    birth = Date.parse(birth)
     const created_at = Date.now()
     const id = Number(data.instructors.length + 1)
 
@@ -61,7 +66,7 @@ exports.post = function(req, res) {
     
     //return res.send(req.body)
 }
-// update
+// edit
 exports.edit = function(req, res) {
 
     const { id } = req.params
@@ -72,7 +77,56 @@ exports.edit = function(req, res) {
 
     if (!foundInstructor) return res.send("Instructor not found")
 
-    return res.render('instructors/edit', {instructor : foundInstructor})
-}
+    const instructor = {
+        ...foundInstructor,
+        birth: date(foundInstructor.birth)
+    }
 
+    return res.render('instructors/edit', {instructor})
+}
+//put
+exports.put = function(req, res) {
+
+    const { id } = req.body
+    let index = 0
+
+    const foundInstructor = data.instructors.find(function(instructor, foundIndex) {
+        if (id == instructor.id) {
+            index = foundIndex
+            return true
+        }
+    })
+
+    if (!foundInstructor) return res.send("Instructor not found")
+
+    const instructor = {
+        ...foundInstructor,
+        ...req.body,
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id) 
+    }
+
+    data.instructors[index] = instructor
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if(err) return res.send("write error!")
+
+        return res.redirect(`/instructors/${id}`)
+    })
+}
 //delete
+exports.delete = function(req,res) {
+    const { id } = req.body
+
+    const filteredIntructors = data.instructors.filter(function(instructor) {
+        return instructor.id != id
+    })
+
+    data.instructors = filteredIntructors
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) return res.send("write file error")
+
+        return res.redirect("/instructors")
+    })
+}

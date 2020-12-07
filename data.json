@@ -2,30 +2,12 @@
   "instructors": [
     {
       "id": 1,
-      "avatar_url": "http://www.uesc.br/",
-      "name": "sdsdsd",
-      "birth": 1604448000000,
-      "gender": "F",
-      "services": "natação, musculação, aerobico",
-      "created_at": 1606344344620
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=400&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
-      "name": "victor",
-      "birth": 848448000000,
+      "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=460&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
+      "name": "victor premoli",
+      "birth": 849312000000,
       "gender": "M",
-      "services": "musculação, aerobico",
-      "created_at": 1606351052695
-    },
-    {
-      "id": 3,
-      "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=400&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
-      "name": "victor",
-      "birth": 849139200000,
-      "gender": "M",
-      "services": "musculação, aerobico",
-      "created_at": 1606351093614
+      "services": "musculação",
+      "created_at": 1607195793298
     }
   ]
 }
