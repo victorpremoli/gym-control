@@ -1,5 +1,17 @@
 {
-  "members": [],
+  "members": [
+    {
+      "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=460&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
+      "name": "Victor Premoli",
+      "email": "premoli@gmail.com",
+      "birth": 848448000000,
+      "gender": "M",
+      "blood": "O1",
+      "weight": "91",
+      "height": "174",
+      "id": 1
+    }
+  ],
   "instructors": [
     {
       "id": 1,

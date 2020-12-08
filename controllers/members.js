@@ -35,25 +35,22 @@ exports.post = function(req, res) {
             return res.send('please fill all fields!!') 
         }
     }
+ 
+    birth = Date.parse(req.body.birth)
 
-    let {avatar_url, birth, gender, services, name} = req.body
-
-    birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.members.length + 1)
-
+    let id = 1
+    const lastMember = data.members[data.members.length - 1]
+    
+    if (lastMember) {
+        id = lastMember.id + 1
+    }
 
     data.members.push({
-        id, 
-        avatar_url,
-        name,
-        birth, 
-        gender, 
-        services,
-        created_at 
+        id,
+        ...req.body,
+        birth
     })
 
-    
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
         if (err) {
             return res.send ('write file error')
@@ -61,8 +58,6 @@ exports.post = function(req, res) {
         return res.redirect('/members')
 
     })
-    
-    //return res.send(req.body)
 }
 exports.edit = function(req, res) {
 
