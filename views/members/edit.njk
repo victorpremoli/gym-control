@@ -5,24 +5,36 @@
     <div class="card">
         <section 
             class="avatar" 
-            style="background: url({{instructor.avatar_url}}) no-repeat center center / cover">
+            style="background: url({{member.avatar_url}}) no-repeat center center / cover">
         </section>
 
         <section class="details" >
-            <form method="post" action="/instructors?_method=PUT">
+            <form method="post" action="/members?_method=PUT">
 
-                <h3>Novo instrutor</h3>
+                <h3>Novo Membro</h3>
 
-                {% include 'instructors/fields.njk'%}
+                {% include 'members/fields.njk'%}
 
-                <input type="hidden" name="id" value="{{instructor.id}}">
+                <input type="hidden" name="id" value="{{member.id}}">
                 
             </form>
 
-            <form id="form-delete" method="post" action="/instructors?_method=DELETE">
-                <input type="hidden" name="id" value="{{instructor.id}}">
+            <form id="form-delete" method="post" action="/members?_method=DELETE">
+                <input type="hidden" name="id" value="{{member.id}}">
                 <button type="submit">DELETAR</button>
             </form>
+
+            <script>
+
+                const formDelete = document.querySelector("#form-delete")
+                formDelete.addEventListener("submit", function(event) {
+                    const confirmation = confirm("Deseja deletar esse Membro ?")
+                    if(!confirmation) {
+                        event.preventDefault()
+                    }
+                }) 
+
+            </script>
         </section>
 
     </div>

@@ -1,15 +1,26 @@
 {
   "members": [
     {
+      "id": 1,
       "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=460&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
-      "name": "Victor Premoli",
-      "email": "premoli@gmail.com",
+      "name": "victor",
+      "email": "premoli@premoli.com",
       "birth": 848448000000,
       "gender": "M",
       "blood": "O+",
-      "weight": "91",
-      "height": "174",
-      "id": 1
+      "weight": "90",
+      "height": "174"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://avatars1.githubusercontent.com/u/41208796?s=460&u=b6363db95b5ebf48bb362c2f55cd2a765b3384aa&v=4",
+      "name": "joão",
+      "email": "premoli@premoli2.com",
+      "birth": 848534400000,
+      "gender": "M",
+      "blood": "A+",
+      "weight": "55",
+      "height": "155"
     }
   ],
   "instructors": [
